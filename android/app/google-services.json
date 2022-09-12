@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "485228426387",
+    "project_id": "labourhomeinternational-eba96",
+    "storage_bucket": "labourhomeinternational-eba96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485228426387:android:341e9470882aa4ebb2c966",
+        "android_client_info": {
+          "package_name": "com.labourhomeinternational"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "485228426387-38p5dqq7udnanauplup59ljss5regb31.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-OXcYaXWcieo-H1KIY7Lr0LSTxCL9QFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "485228426387-38p5dqq7udnanauplup59ljss5regb31.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
