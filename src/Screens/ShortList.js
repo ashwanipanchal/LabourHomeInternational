@@ -19,9 +19,11 @@ import {Header, HeaderDark} from '../Custom/CustomView';
 import Toast from 'react-native-simple-toast';
 import {Api, LocalStorage} from '../services/Api';
 import JobList from '../Custom/JobList';
+// import { useIsFocused } from '@react-navigation/native';
 const {height} = Dimensions.get('window');
 
 const ShortList = ({navigation}) => {
+  // const isFocused = useIsFocused();
   const [data, setData] = useState([]);
   const [userHome, setUserHome] = useState([])
   const [state, setState] = useState({
@@ -30,10 +32,11 @@ const ShortList = ({navigation}) => {
 
   useFocusEffect(React.useCallback(()=>{
     shortList()
+    return () => shortList();
   },[]))
-  // useEffect(()=>{
-  //   ShortList()
-  // },[memoizedVal])
+  // useFocusEffect(()=>{
+  //   shortList()
+  // },[isFocused])
 
   // const memoizedVal = useMemo(() => shortList(), []);
   const toggleLoader = isLoading => setState({ ...state, isLoading })
@@ -75,12 +78,15 @@ const ShortList = ({navigation}) => {
 
   }
 
-  if(data.length == 0){
+  if(!state.isLoading && data.length == 0){
+    // alert("come here")
     return (
-      <View style={{backgroundColor: '#FFF', flex: 1}}>
+      <View style={{backgroundColor: '#fff', flex: 1}}>
         <StatusBarLight />
         <HeaderDark onPress={() => navigation.goBack()} title={'Shortlist'} />
-        <Image style={{resizeMode:'contain', width:'100%', height:'100%'}} source={require('../images/no-data.png')}/>
+        <View style={{justifyContent:'center', alignItems:'center',  flex:1}}>
+          <Image style={{resizeMode:'contain', width:'50%', height:'50%',}} source={require('../images/no-data.png')}/>
+        </View>
       </View>
     )
   }
@@ -89,9 +95,9 @@ const ShortList = ({navigation}) => {
     <View style={{backgroundColor: '#f8f8f8', flex: 1}}>
       <StatusBarLight />
       <HeaderDark onPress={() => navigation.goBack()} title={'Shortlist'} />
-      {(data.length>0 &&
+      {/* {(data.length>0 && */}
       <ScrollView>
-      {state.isLoading ? <JobList /> : (
+      {state.isLoading ? <JobList/> : (
         <View>
           <FlatList
             numColumns={1}
@@ -139,13 +145,10 @@ const ShortList = ({navigation}) => {
               </TouchableOpacity>
             )}
           />
-        </View>)}
-      </ScrollView>)}
-      {/* {(data.length == 0 && 
-      <View style={{backgroundColor:'red', flex:1}}>
-        <Image style={{resizeMode:'contain', width:'100%', height:'100%'}} source={require('../images/no-data.png')}/>
-      </View>
-      )} */}
+        </View>)
+          }
+      </ScrollView>
+      {/* )} */}
     </View>
   );
 };

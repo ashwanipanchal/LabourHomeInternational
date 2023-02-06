@@ -48,6 +48,14 @@ const JOBAPPLIES = () => {
   }
 
   
+  if(!state.isLoading && data.length == 0){
+    // alert("come here")
+    return (
+    <View style={{justifyContent:'center', alignItems:'center', backgroundColor:'#fff',flex:1}}>
+      <Image style={{resizeMode:'contain', width:'50%', height:'50%'}} source={require('../images/no-data.png')}/>
+    </View>
+  )}
+  
   return (
     <View style={{flex: 1, backgroundColor: '#f8f8f8'}}>
       <ScrollView>
@@ -104,9 +112,6 @@ const JOBAPPLIES = () => {
           />
         </View>)}
         </ScrollView>
-        {(data.length == 0 &&
-              <Image style={{resizeMode:'contain', width:'100%', height:'100%'}} source={require('../images/no-data.png')}/>
-          )}
     </View>
   );
 };
@@ -131,6 +136,15 @@ const JOBDECLINE = () => {
     toggleLoader(false)
     setItem(response.data)
   }
+
+
+  if(!state.isLoading && item.length == 0){
+    // alert("come here")
+    return (
+    <View style={{justifyContent:'center', alignItems:'center', backgroundColor:'#fff',flex:1}}>
+      <Image style={{resizeMode:'contain', width:'50%', height:'50%'}} source={require('../images/no-data.png')}/>
+    </View>
+  )}
   return (
     <View style={{flex: 1, backgroundColor: '#f8f8f8'}}>
       <ScrollView>
@@ -187,9 +201,6 @@ const JOBDECLINE = () => {
           />
         </View>)}
         </ScrollView>
-        {(item.length == 0 &&
-              <Image style={{resizeMode:'contain', width:'100%', height:'100%'}} source={require('../images/no-data.png')}/>
-          )}
     </View>
   );
 };

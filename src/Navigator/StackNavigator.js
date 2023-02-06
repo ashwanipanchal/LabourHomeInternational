@@ -1,4 +1,5 @@
 import React, {useRef} from 'react';
+import {Image} from 'react-native';
 import {
   CardStyleInterpolators,
   createStackNavigator,
@@ -180,11 +181,22 @@ const StackNavigator = () => {
           component={ShortList}
           options={{headerShown: false}}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Profile"
           component={Profile}
-          options={{headerShown: true}}
-        /> */}
+          options={{headerShown: false}}
+          // options={{
+          //   headerLeft:(<Image source={require('../images/back.png')}/>),
+          //   title: 'Profile',
+          //   headerStyle: {
+          //     backgroundColor: '#2574FF',
+          //   },
+          //   headerTintColor: '#fff',
+          //   headerTitleStyle: {
+          //     fontWeight: 'bold',
+          //   },
+          // }}
+        />
         <Stack.Screen
           name="MyJobs"
           component={MyJobs}

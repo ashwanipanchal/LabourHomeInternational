@@ -158,7 +158,7 @@ const Profile = ({ navigation }) => {
         }}
         backIcon={require('../images/back.png')}
         title={userBasicDetails.name ? userBasicDetails.name : "Profile"}
-        shareOnClick={() => { }}
+        // shareOnClick={() => {require('../images/back.png') }}
         // share={require('../images/notification1.png')}
       />
       {/* <HeaderRNE

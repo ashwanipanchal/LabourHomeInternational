@@ -80,6 +80,26 @@ const ScheduleInterview = ({navigation, route}) => {
     }
   }
 
+  if(!state.isLoading && data.length == 0){
+    return (
+      <View style={{backgroundColor: '#fff', flex: 1}}>
+        <StatusBarLight />
+        <AppHeader
+        backOnClick={() => {
+          navigation.goBack();
+        }}
+        backIcon={require('../images/back.png')}
+        title={'Schedule Interview'}
+        // shareOnClick={() => {}}
+        // share={require('../images/Reruiting-agent-slice/support.png')}
+      />
+        <View style={{justifyContent:'center', alignItems:'center',  flex:1}}>
+          <Image style={{resizeMode:'contain', width:'50%', height:'50%',}} source={require('../images/no-data.png')}/>
+        </View>
+      </View>
+    )
+  }
+
   return (
     <View style={{backgroundColor: '#FFFFFF', flex: 1}}>
       <StatusBarLight />

@@ -80,6 +80,19 @@ const TabNavigator = ({route}) => {
             TabIcon(focused ? iconPath.a : iconPath.Aa),
           headerShown: false,
         }}
+        // options={{
+        //   tabBarLabel: 'Profile',
+        //   tabBarIcon: ({focused}) =>
+        //     TabIcon(focused ? iconPath.a : iconPath.Aa),
+        //   title: 'Profile',
+        //   headerStyle: {
+        //     backgroundColor: '#2574FF',
+        //   },
+        //   headerTintColor: '#fff',
+        //   headerTitleStyle: {
+        //     fontWeight: 'bold',
+        //   },
+        // }}
       />
     </Tab.Navigator>
   );

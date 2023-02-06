@@ -263,6 +263,7 @@ const JOBSTATUS = () => {
     const { status, user_details } = response;
     console.log(" status check for user 1" , response)
     console.log(" status check for user 2" , response2)
+    // alert(JSON.stringify(response2,null,2))
     setUserData(user_details)
     setUserJobStatus(response2)
     setPaymentRecived(response2.payment_received)
@@ -289,21 +290,19 @@ const JOBSTATUS = () => {
       "agency_id": route.params.agency_id,
       "schedule_interview":"1"
     }
-    
-    setTimeout(()=>{
-
-      doIt()
-    },2000)
-    const doIt = async()=> {
+    // setTimeout(()=>{
+    //   doIt()
+    // },2000)
+    // const doIt = async()=> {
       const response = await Api.acceptInterview(body);
       
-      alert(JSON.stringify(response,null,2))
+      // alert(JSON.stringify(response,null,2))
       const {status, message} = response;
       if(status){
         console.log(status)
-        setState({ ...state, isLoading: false });
         getData()
-      }
+        setState({ ...state, isLoading: false });
+      // }
     }
   }
 
@@ -660,7 +659,7 @@ const JOBSTATUS = () => {
   }
   const obj1 = () => {
     if(userJobStatus){
-      if(userJobStatus.approved === 1 && userJobStatus.skill_certificate === 0){
+      if(userJobStatus.approved === 1 && userJobStatus.skill_certificate == 0){
        return <View style={{ flexDirection: 'row', alignItems: 'center', }}>
          {state.skill_cert ? (
           <ImageBackground
@@ -868,7 +867,7 @@ const JOBSTATUS = () => {
 
   const skillCertificate = () => {
     if(userJobStatus){
-      if(userJobStatus.skill_certificate === 0){
+      if(userJobStatus.skill_certificate == 0){
         return {
           title: <Text style={{ color: '#8F9BB3' }}>Skill Certificate Pending</Text>,
           icon: <Image style={{ width: 20, height: 20, resizeMode: 'contain' }} source={require('../images/tick2.png')}/>,

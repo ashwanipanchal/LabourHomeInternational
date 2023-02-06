@@ -11,12 +11,22 @@ import NoInternet from './src/Screens/NoInternet';
 LogBox.ignoreAllLogs();//Ignore all log notifications
 
 const App = () => {
-  const net = useNetInfo()
+  useEffect(()=>{
+    const unsubscribe = NetInfo.addEventListener(state => {
+      if(!state.isConnected){
+        return <NoInternet/>
+      }
+    });
+  },[])
+  // const net = useNetInfo()
  
   return (
     <Provider store={store}>
-      {!net.isConnected ? <NoInternet/>: <StackNavigator />}
+      <StackNavigator />
     </Provider>
+    // <Provider store={store}>
+    //   {!net.isConnected ? <NoInternet/>: <StackNavigator />}
+    // </Provider>
   );
 };
 

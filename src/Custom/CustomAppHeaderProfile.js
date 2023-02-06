@@ -50,6 +50,7 @@ function AppHeader(navigation) {
       ) : (
         <View style={{flex: 0.2}}>
           <TouchableOpacity
+          style={{ marginTop:20}}
             onPress={() => {
               backOnClick();
             }}>
@@ -58,7 +59,7 @@ function AppHeader(navigation) {
         </View>
       )}
       {title && (
-        <View style={{flex: 1, justifyContent: 'center', alignItems:'center',  marginRight:30}}>
+        <View style={{flex: 1,  }}>
           <Text
             numberOfLines={1}
             style={[
@@ -129,6 +130,7 @@ function AppHeader(navigation) {
       {share && (
         <View>
           <TouchableOpacity
+          style={{backgroundColor:'red'}}
             onPress={() => {
               shareOnClick();
             }}>
@@ -193,7 +195,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'Muli-Bold',
     fontWeight: '700',
-    marginTop: 30,
+    marginTop: 50,
   },
   smailTitleTextOffCss: {
     color: '#606E87',

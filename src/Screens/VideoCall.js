@@ -272,11 +272,6 @@ const VideoCall = ({navigation,route}) => {
     },
   };
 
-  // videoCall ? (
-  //   <AgoraUIKit connectionData={connectionData} rtcCallbacks={rtcCallbacks} />
-  // ) : (
-  //   <Text onPress={()=>setVideoCall(true)}>Start Call</Text>
-  // );
   const textStyle = {
     color: '#fff',
     backgroundColor: '#2edb85',
